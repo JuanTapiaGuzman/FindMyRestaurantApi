@@ -10,13 +10,13 @@ using Newtonsoft.Json;
 
 namespace FindMyRestaurantApi.Controllers
 {
-    public class HistorialController : ApiController
+    public class RecommendationController : ApiController
     {
         // GET: api/Historial
         public IEnumerable<string[]> Get()
         {
             var Historial = new Historial();
-            var result = from c in Historial.SelectHistorial()
+            var result = from c in Historial.SelectRecommendations("01")
                          select new[] { c.Usuario,
                                         c.Restaurante,
                                         c.Puntuacion
