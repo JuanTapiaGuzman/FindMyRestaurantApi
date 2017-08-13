@@ -5,22 +5,19 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FindMyRestaurantApi.Models;
+using Newtonsoft.Json;
 
 namespace FindMyRestaurantApi.Controllers
 {
     public class RestauranteController : ApiController
     {
         // GET: api/Restaurante
-        public IEnumerable<string[]> Get()
+        public string Get()
         {
-            var Restaurante = new Restaurante();
-            var result = from c in Restaurante.SelectRestaurantes()
-                         select new[] { c.Nombre,
-                                        c.LatitudGps,
-                                        c.LongitudGps,
-                                        c.Direccion,
-                                        c.Telefono
-                         };
+            var restaurante = new Restaurante().SelectRestaurantes();
+
+            var result = JsonConvert.SerializeObject(restaurante);
+
             return result;
         }
 
