@@ -7,6 +7,7 @@ using System.Web.Http;
 using Newtonsoft.Json;
 using FindMyRestaurantApi.Models;
 using System.Threading.Tasks;
+using System.Net.Http.Formatting;
 
 namespace FindMyRestaurantApi.Controllers
 {
@@ -51,10 +52,26 @@ namespace FindMyRestaurantApi.Controllers
         /// <param name="password"></param>
         /// <returns></returns>
         // GET: api/Usuario/
-        public string Get(string usuario, string password)
+        public IHttpActionResult Get(string usuario, string password)
         {
             var Usuario = new Usuario();
-            return Usuario.ValidarUsuario(usuario, password).ToString();
+
+            if(Usuario.ValidarUsuario(usuario, password))
+            {
+                var userModel = Usuario.SelectUsuario(usuario, password);
+
+                var json = JsonConvert.SerializeObject(userModel);
+
+                Ok();
+
+                return base.Content(HttpStatusCode.OK, json, new JsonMediaTypeFormatter(), "text/plain");
+            }
+            else
+            {
+                NotFound();
+
+                return base.Content(HttpStatusCode.OK, new { }, new JsonMediaTypeFormatter(), "text/plain");
+            }
         }
 
         public HttpResponseMessage PostUsuario(Usuario value)

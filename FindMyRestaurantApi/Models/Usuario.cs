@@ -51,14 +51,34 @@ namespace FindMyRestaurantApi.Models
 
             foreach (Data.dsMantenimiento.UsuariosRow data in dt)
             {
-
                 Usuario.Id = data.IdUsuario;
                 Usuario.User = data.Usuario;
                 Usuario.Nombre = data.Nombre;
                 Usuario.Contraseña = data.Contraseña;
                 Usuario.Email = data.Email;
                 Usuario.IdTransporte = data.IdTransporte;
+            }
 
+            return Usuario;
+        }
+
+        public Usuario SelectUsuario(string username, string password)
+        {
+            Data.dsMantenimientoTableAdapters.UsuarioLoginTableAdapter adapter = new Data.dsMantenimientoTableAdapters.UsuarioLoginTableAdapter();
+            Data.dsMantenimiento.UsuarioLoginDataTable dt = adapter.SelectUsuarioLogin(username, password);
+
+            var Usuario = new Usuario();
+            if (dt.Rows.Count == 0)
+                return Usuario;
+
+            foreach (Data.dsMantenimiento.UsuarioLoginRow data in dt)
+            {
+                Usuario.Id = data.IdUsuario;
+                Usuario.User = data.Usuario;
+                Usuario.Nombre = data.Nombre;
+                Usuario.Contraseña = data.Contraseña;
+                Usuario.Email = data.Email;
+                Usuario.IdTransporte = data.IdTransporte;
             }
 
             return Usuario;
