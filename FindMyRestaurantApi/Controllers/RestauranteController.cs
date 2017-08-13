@@ -16,7 +16,13 @@ namespace FindMyRestaurantApi.Controllers
         {
             var restaurante = new Restaurante().SelectRestaurantes();
 
-            var result = JsonConvert.SerializeObject(restaurante);
+            var list = from c in restaurante
+                       select new[]
+                       {
+                           c.Nombre
+                       };
+
+            var result = JsonConvert.SerializeObject(list);
 
             return result;
         }
