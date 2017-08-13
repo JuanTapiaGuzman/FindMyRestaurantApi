@@ -70,7 +70,7 @@ namespace FindMyRestaurantApi.Controllers
             {
                 NotFound();
 
-                return base.Content(HttpStatusCode.OK, new { }, new JsonMediaTypeFormatter(), "text/plain");
+                return base.Content(HttpStatusCode.NoContent, new { }, new JsonMediaTypeFormatter(), "text/plain");
             }
         }
 
