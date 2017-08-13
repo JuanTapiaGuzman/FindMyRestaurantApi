@@ -4,44 +4,98 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
 using FindMyRestaurantApi.Models;
+using System.Threading.Tasks;
 
 namespace FindMyRestaurantApi.Controllers
 {
     public class UsuarioController : ApiController
     {
+        /// <summary>
+        /// Obtener listado de usuarios
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Usuario
-        public IEnumerable<string[]> Get()
+        public string Get()
         {
-            var Usuario = new Usuario();
-            var result = from c in Usuario.SelectUsuarios()
-                         select new[] { c.Id.ToString(),
-                                        c.Nombre,
-                                        c.User,
-                                        c.Email
-                         };
+            var Usuario = new Usuario().SelectUsuarios();
+
+            var result = JsonConvert.SerializeObject(Usuario);
+
             return result;
         }
 
         // GET: api/Usuario/5
         public string Get(int id)
         {
-            return "value";
+            var modelo = new Usuario().SelectUsuario(id);
+            var json = new Usuario();
+
+            json.Id = modelo.Id;
+            json.User = modelo.User;
+            json.Nombre = modelo.Nombre;
+            json.Contraseña = modelo.Contraseña;
+            json.Email = modelo.Email;
+            json.IdTransporte = modelo.IdTransporte;
+
+            string result = JsonConvert.SerializeObject(json);
+
+            return result;
         }
 
-        // POST: api/Usuario
-        public void Post([FromBody]string value)
+        /// <summary>
+        /// Validar datos de usuario en login
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        // GET: api/Usuario/
+        public string Get(string usuario, string password)
         {
+            var Usuario = new Usuario();
+            return Usuario.ValidarUsuario(usuario, password).ToString();
+        }
+
+        public HttpResponseMessage PostUsuario(Usuario value)
+        {
+            if (ModelState.IsValid)
+            {
+                var model = new Usuario();
+                model.InsertUsuario(value.User, value.Contraseña, value.Nombre, value.Email, value.IdTransporte);
+
+                HttpResponseMessage response =
+                Request.CreateResponse(HttpStatusCode.Created, value);
+
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new
+                {
+                    id = value.Id
+                }));
+
+                return response;
+
+            }
+            else
+            {
+
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest,
+                ModelState);
+
+            }
         }
 
         // PUT: api/Usuario/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Usuario usuario)
         {
+            var model = new Usuario();
+            model.UpdateUsuario(id, usuario.User, usuario.Contraseña, usuario.Nombre, usuario.Email, usuario.IdTransporte);
         }
 
         // DELETE: api/Usuario/5
         public void Delete(int id)
         {
+            var usuario = new Usuario();
+            usuario.DeleteUsuario(id);
         }
     }
 }

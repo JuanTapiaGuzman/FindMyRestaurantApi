@@ -66,7 +66,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.UpdateUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateUsuario" Modifier="Public" Name="UpdateUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateUsuario">
+              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.UpdateUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateUsuario" Modifier="Public" Name="UpdateUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateUsuario">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.UpdateUsuario</CommandText>
@@ -149,7 +149,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.UpdateRestaurante" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateRestaurante" Modifier="Public" Name="UpdateRestaurante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateRestaurante">
+              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.UpdateRestaurante" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateRestaurante" Modifier="Public" Name="UpdateRestaurante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRestaurante">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.UpdateRestaurante</CommandText>
@@ -208,7 +208,7 @@
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.DeleteCiudad" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="DeleteCiudad" Modifier="Public" Name="DeleteCiudad" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteCiudad">
+              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.DeleteCiudad" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="DeleteCiudad" Modifier="Public" Name="DeleteCiudad" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteCiudad">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.DeleteCiudad</CommandText>
@@ -241,7 +241,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.UpdateCiudad" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateCiudad" Modifier="Public" Name="UpdateCiudad" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateCiudad">
+              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.UpdateCiudad" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateCiudad" Modifier="Public" Name="UpdateCiudad" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateCiudad">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.UpdateCiudad</CommandText>
@@ -255,6 +255,26 @@
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ValidarLoginTableAdapter" GeneratorDataComponentClassName="ValidarLoginTableAdapter" Name="ValidarLogin" UserDataComponentName="ValidarLoginTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FindMyRestaurantConnectionString (Web.config)" DbObjectName="FindMyRestaurant.dbo.ValidarLogin" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="ValidarLogin" GetMethodModifier="Public" GetMethodName="ValidarLogin" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="ValidarLogin" UserSourceName="ValidarLogin">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.ValidarLogin</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@usuario" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@password" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="VALIDO" DataSetColumn="VALIDO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -263,7 +283,7 @@
   <xs:element name="dsMantenimiento" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsMantenimiento" msprop:Generator_UserDSName="dsMantenimiento">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent" msprop:Generator_RowClassName="UsuariosRow">
+        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdUsuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdUsuario" msprop:Generator_ColumnPropNameInRow="IdUsuario" msprop:Generator_ColumnPropNameInTable="IdUsuarioColumn" msprop:Generator_UserColumnName="IdUsuario" type="xs:int" />
@@ -299,7 +319,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Restaurantes" msprop:Generator_TableClassName="RestaurantesDataTable" msprop:Generator_TableVarName="tableRestaurantes" msprop:Generator_TablePropName="Restaurantes" msprop:Generator_RowDeletingName="RestaurantesRowDeleting" msprop:Generator_RowChangingName="RestaurantesRowChanging" msprop:Generator_RowEvHandlerName="RestaurantesRowChangeEventHandler" msprop:Generator_RowDeletedName="RestaurantesRowDeleted" msprop:Generator_UserTableName="Restaurantes" msprop:Generator_RowChangedName="RestaurantesRowChanged" msprop:Generator_RowEvArgName="RestaurantesRowChangeEvent" msprop:Generator_RowClassName="RestaurantesRow">
+        <xs:element name="Restaurantes" msprop:Generator_TableClassName="RestaurantesDataTable" msprop:Generator_TableVarName="tableRestaurantes" msprop:Generator_RowChangedName="RestaurantesRowChanged" msprop:Generator_TablePropName="Restaurantes" msprop:Generator_RowDeletingName="RestaurantesRowDeleting" msprop:Generator_RowChangingName="RestaurantesRowChanging" msprop:Generator_RowEvHandlerName="RestaurantesRowChangeEventHandler" msprop:Generator_RowDeletedName="RestaurantesRowDeleted" msprop:Generator_RowClassName="RestaurantesRow" msprop:Generator_UserTableName="Restaurantes" msprop:Generator_RowEvArgName="RestaurantesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdRestaurante" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdRestaurante" msprop:Generator_ColumnPropNameInRow="IdRestaurante" msprop:Generator_ColumnPropNameInTable="IdRestauranteColumn" msprop:Generator_UserColumnName="IdRestaurante" type="xs:int" />
@@ -344,7 +364,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Historial" msprop:Generator_TableClassName="HistorialDataTable" msprop:Generator_TableVarName="tableHistorial" msprop:Generator_TablePropName="Historial" msprop:Generator_RowDeletingName="HistorialRowDeleting" msprop:Generator_RowChangingName="HistorialRowChanging" msprop:Generator_RowEvHandlerName="HistorialRowChangeEventHandler" msprop:Generator_RowDeletedName="HistorialRowDeleted" msprop:Generator_UserTableName="Historial" msprop:Generator_RowChangedName="HistorialRowChanged" msprop:Generator_RowEvArgName="HistorialRowChangeEvent" msprop:Generator_RowClassName="HistorialRow">
+        <xs:element name="Historial" msprop:Generator_TableClassName="HistorialDataTable" msprop:Generator_TableVarName="tableHistorial" msprop:Generator_RowChangedName="HistorialRowChanged" msprop:Generator_TablePropName="Historial" msprop:Generator_RowDeletingName="HistorialRowDeleting" msprop:Generator_RowChangingName="HistorialRowChanging" msprop:Generator_RowEvHandlerName="HistorialRowChangeEventHandler" msprop:Generator_RowDeletedName="HistorialRowDeleted" msprop:Generator_RowClassName="HistorialRow" msprop:Generator_UserTableName="Historial" msprop:Generator_RowEvArgName="HistorialRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Restaurante" msprop:Generator_ColumnVarNameInTable="columnRestaurante" msprop:Generator_ColumnPropNameInRow="Restaurante" msprop:Generator_ColumnPropNameInTable="RestauranteColumn" msprop:Generator_UserColumnName="Restaurante">
@@ -365,7 +385,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Ciudades" msprop:Generator_TableClassName="CiudadesDataTable" msprop:Generator_TableVarName="tableCiudades" msprop:Generator_TablePropName="Ciudades" msprop:Generator_RowDeletingName="CiudadesRowDeleting" msprop:Generator_RowChangingName="CiudadesRowChanging" msprop:Generator_RowEvHandlerName="CiudadesRowChangeEventHandler" msprop:Generator_RowDeletedName="CiudadesRowDeleted" msprop:Generator_UserTableName="Ciudades" msprop:Generator_RowChangedName="CiudadesRowChanged" msprop:Generator_RowEvArgName="CiudadesRowChangeEvent" msprop:Generator_RowClassName="CiudadesRow">
+        <xs:element name="Ciudades" msprop:Generator_TableClassName="CiudadesDataTable" msprop:Generator_TableVarName="tableCiudades" msprop:Generator_RowChangedName="CiudadesRowChanged" msprop:Generator_TablePropName="Ciudades" msprop:Generator_RowDeletingName="CiudadesRowDeleting" msprop:Generator_RowChangingName="CiudadesRowChanging" msprop:Generator_RowEvHandlerName="CiudadesRowChangeEventHandler" msprop:Generator_RowDeletedName="CiudadesRowDeleted" msprop:Generator_RowClassName="CiudadesRow" msprop:Generator_UserTableName="Ciudades" msprop:Generator_RowEvArgName="CiudadesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdCiudad" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdCiudad" msprop:Generator_ColumnPropNameInRow="IdCiudad" msprop:Generator_ColumnPropNameInTable="IdCiudadColumn" msprop:Generator_UserColumnName="IdCiudad" type="xs:int" />
@@ -376,6 +396,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ValidarLogin" msprop:Generator_TableClassName="ValidarLoginDataTable" msprop:Generator_TableVarName="tableValidarLogin" msprop:Generator_TablePropName="ValidarLogin" msprop:Generator_RowDeletingName="ValidarLoginRowDeleting" msprop:Generator_RowChangingName="ValidarLoginRowChanging" msprop:Generator_RowEvHandlerName="ValidarLoginRowChangeEventHandler" msprop:Generator_RowDeletedName="ValidarLoginRowDeleted" msprop:Generator_UserTableName="ValidarLogin" msprop:Generator_RowChangedName="ValidarLoginRowChanged" msprop:Generator_RowEvArgName="ValidarLoginRowChangeEvent" msprop:Generator_RowClassName="ValidarLoginRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VALIDO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVALIDO" msprop:Generator_ColumnPropNameInRow="VALIDO" msprop:Generator_ColumnPropNameInTable="VALIDOColumn" msprop:Generator_UserColumnName="VALIDO" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -64,22 +64,33 @@ namespace FindMyRestaurantApi.Models
             return Usuario;
         }
 
-        public void InsertUsuario(string User, string Contraseña, string Nombre, string Email, int IdTransporte)
+        public void InsertUsuario(string user, string contraseña, string nombre, string email, int idTransporte)
         {
             Data.dsMantenimientoTableAdapters.UsuariosTableAdapter adapter = new Data.dsMantenimientoTableAdapters.UsuariosTableAdapter();
-            adapter.InsertUsuario(Nombre, User, Contraseña, Email, IdTransporte);
+            adapter.InsertUsuario(nombre, user, contraseña, email, idTransporte);
         }
 
-        public void UpdateUsuario(string User, string Contraseña, string Nombre, string Email, int IdTransporte)
+        public void UpdateUsuario(int id, string user, string contraseña, string nombre, string email, int idTransporte)
         {
             Data.dsMantenimientoTableAdapters.UsuariosTableAdapter adapter = new Data.dsMantenimientoTableAdapters.UsuariosTableAdapter();
-            adapter.UpdateUsuario(Id, Nombre, User, Contraseña, Email, IdTransporte);
+            adapter.UpdateUsuario(id, nombre, user, contraseña, email, idTransporte);
         }
 
         public void DeleteUsuario(int? Id)
         {
             Data.dsMantenimientoTableAdapters.UsuariosTableAdapter adapter = new Data.dsMantenimientoTableAdapters.UsuariosTableAdapter();
             adapter.DeleteUsuario(Id);
+        }
+
+        public bool ValidarUsuario(string usuario, string password)
+        {
+            Data.dsMantenimientoTableAdapters.ValidarLoginTableAdapter adapter = new Data.dsMantenimientoTableAdapters.ValidarLoginTableAdapter();
+            Data.dsMantenimiento.ValidarLoginDataTable dt = adapter.ValidarLogin(usuario, password);
+
+            if (dt.Rows.Count <= 0)
+                return false;
+
+            return dt.First().VALIDO;
         }
     }
 }
